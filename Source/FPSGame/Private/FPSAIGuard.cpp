@@ -49,7 +49,7 @@ void AFPSAIGuard::OnNoiseHeard(APawn* NoiseInstigator, const FVector& Location, 
 {
 	DrawDebugSphere(GetWorld(), Location, 32.0f, 12, FColor::Green, false, 10.0f);
 
-	FVector Direction = Location - GetActorLocation();
+	FVector Direction = GetActorLocation() - Location;
 	Direction.Normalize();
 	FRotator NewLookAt = FRotationMatrix::MakeFromX(Direction).Rotator();
 	NewLookAt.Pitch = 0.0f;
