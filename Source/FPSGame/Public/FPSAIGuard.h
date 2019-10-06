@@ -45,8 +45,11 @@ protected:
 
 	FTimerHandle TimerHandle_ResetOrientation;
 
-	UPROPERTY(VisibleAnywhere, Category = "AI")
+	UPROPERTY(VisibleAnywhere, Category = "AI", ReplicatedUsing = OnRep_GuardState)
 	EAIState GuardState;
+
+	UFUNCTION()
+	void OnRep_GuardState();
 
 	void SetGuardState(EAIState NewState);
 
@@ -54,14 +57,6 @@ protected:
 	void OnStateChanged(EAIState NewState);
 
 	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const;
-
-	void OnRep_GuardState();
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-protected:
 
 	// Let the guard go on patrol
 	UPROPERTY(EditInstanceOnly, Category = "AI")
@@ -79,5 +74,9 @@ protected:
 	AActor* CurrentPatrolPoint;
 
 	void MoveToNextPatrolPoint();
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
 };
