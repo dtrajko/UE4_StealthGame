@@ -55,10 +55,10 @@ void AFPSAIGuard::OnPawnSeen(APawn* SeenPawn)
 	SetGuardState(EAIState::Alerted);
 
 	// Stop movement if patrolling
-	AController* Controller = GetController();
-	if (Controller)
+	AController* AIController = GetController();
+	if (AIController)
 	{
-		Controller->StopMovement();
+		AIController->StopMovement();
 	}
 
 	// UE_LOG(LogTemp, Warning, TEXT("OnPawnSeen event triggered!"));
@@ -87,10 +87,10 @@ void AFPSAIGuard::OnNoiseHeard(APawn* NoiseInstigator, const FVector& Location, 
 	SetGuardState(EAIState::Suspicious);
 
 	// Stop movement if patrolling
-	AController* Controller = GetController();
-	if (Controller)
+	AController* AIController = GetController();
+	if (AIController)
 	{
-		Controller->StopMovement();
+		AIController->StopMovement();
 	}
 
 	// UE_LOG(LogTemp, Warning, TEXT("OnNoiseHeard event triggered!"));
@@ -170,5 +170,5 @@ void AFPSAIGuard::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifet
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-	DOREPLIFETIME(AFPSAIGuard, GuardState);
+	// DOREPLIFETIME(AFPSAIGuard, GuardState);
 }

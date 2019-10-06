@@ -45,6 +45,7 @@ protected:
 
 	FTimerHandle TimerHandle_ResetOrientation;
 
+	UPROPERTY(VisibleAnywhere, Category = "AI")
 	EAIState GuardState;
 
 	void SetGuardState(EAIState NewState);
