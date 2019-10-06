@@ -9,3 +9,17 @@ The provided C++ template that ships with the engine has several features that s
 ![alt text](https://www.tomlooman.com/wp-content/uploads/2017/09/Thumb_FPSTemplate2.jpg)
 
 This project is licensed under the Unreal Engine 4 EULA.
+
+---------------------------------------------------------
+
+Multiplayer instructions:
+----------------------------------
+
+Tilde [~] to open the console
+
+Server:
+open FirstPersonExampleMap?listen
+Client desktop:
+open 192.168.0.15:7777
+Client laptop:
+open 192.168.0.13:7777
